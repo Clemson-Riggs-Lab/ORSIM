@@ -1,0 +1,52 @@
+~
+Patient Monitor Config
+Name:Julian Dixon
+Gender:Male
+Age:22
+Height:6'4"
+Weight:180 lbs.
+HeartRate:75
+Pulse:75
+SPO2:97
+Systolic:130
+Diastolic:70
+Tskin:35.4
+ETCO2: 45.5
+~
+Values Ranges
+SPO2 Range (5 15;50)
+HR Range (3 2;70)
+ETCO2 Range (2 5;60)
+BP Range (0 60;0)
+pPeak Range (5 60;20)
+pMean Range (5 60;20)
+peep Range (5 60;20)
+tvExpmL Range (5 60;20)
+mVspont Range (5 60;20)
+mV Range (5 60;20)
+fi Range (5 60;20)
+isoet Range (5 60;20)
+isofi Range (5 60;20)
+mac62y Range (5 60;20)
+o2et Range (5 60;20)
+o2fi Range (5 60;20)
+CO2RRmin Range (5 60;20)
+complcmH2O Range (5 60;20)
+o2percent Range (5 60;20)
+totalflow Range (5 60;20)
+pinsp Range (5 60;20)
+RR Range (5 60;20)
+~
+Anesthesia Monitor ConfigPpeak:13
+EtCO2Peak:43
+This stuff is irrelevant right now
+~
+Patient Monitor Events
+SBP change (145.0 00:01:05;00:02:05)
+DBP change (85.0 00:01:06;00:02:05)
+ETCO2 change (89.0 00:01:20;00:01:27)
+HR change (100.0 00:01:45;00:02:08)
+SPO2 change (95.0 00:02:00;00:02:20)
+SPO2 stabilize (0.0 00:02:50;00:02:59)
+HR stabilize (0.0 00:03:00;00:05:00)
+~

@@ -1,0 +1,22 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class FreshGasGuageManager : GraphManager {
+
+    private float air;
+    private float oxygen;
+
+	// Use this for initialization
+	void Start () {
+        air = 1.0f;
+        oxygen = 1.0f;
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+        previousSum = currentSum;
+        currentSum = air;
+	}
+
+    
+}

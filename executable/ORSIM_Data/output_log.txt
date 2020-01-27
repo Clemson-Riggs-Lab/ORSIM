@@ -1,0 +1,41 @@
+Mono path[0] = 'C:/Users/admin/Desktop/ORSIM (7-22-2019)-20200127T194123Z-001/ORSIM (7-22-2019)/executable/ORSIM_Data/Managed'
+Mono path[1] = 'C:/Users/admin/Desktop/ORSIM (7-22-2019)-20200127T194123Z-001/ORSIM (7-22-2019)/executable/ORSIM_Data/Mono'
+Mono config path = 'C:/Users/admin/Desktop/ORSIM (7-22-2019)-20200127T194123Z-001/ORSIM (7-22-2019)/executable/ORSIM_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/admin/Desktop/ORSIM (7-22-2019)-20200127T194123Z-001/ORSIM (7-22-2019)/executable/ORSIM_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55219
+Multi-casting "[IP] 172.18.84.145 [Port] 55219 [Flags] 3 [Guid] 2927527571 [EditorId] 2528596828 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-VMEUHPN) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [172.18.84.145:55219]...
+Timed out. Continuing without host connection.
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56571
+PlayerConnection already initialized - listening to [172.18.84.145:55219]
+Initialize engine version: 5.4.2f2 (b7e030c65c9b)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) UHD Graphics 620 (ID=0x5917)
+    Vendor:   Intel
+    VRAM:     2111 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\CTCommon.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\CTCommon.dll into Unity Child Domain
+- Completed reload, in  0.261 seconds
+Platform assembly: C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\admin\Desktop\ORSIM (7-22-2019)-20200127T194123Z-001\ORSIM (7-22-2019)\executable\ORSIM_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 48Hz; virtual: 2400x2430 at 0,-1350
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.746000 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 8104 -> priority: 1 
+  Thread -> id: 9a6c -> priority: 1 

@@ -1,0 +1,60 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+public class ContinousMonitor : MonoBehaviour {
+
+    private AudioSource audioSource;
+    private Text dataText;
+    private Patient patient;
+
+    public float stdPulse;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+	// Use this for initialization
+	void Start () {
+        audioSource = GetComponent<AudioSource>();
+        patient = Patient.Instance;
+	}
+	
+    void Update ()
+    {
+        dataText = GameObject.FindGameObjectWithTag("MonitorData").GetComponent<Text>();
+        dataText.text = Mathf.RoundToInt(patient.Pulse).ToString();
+    }
+    public void PlaySound(float pulse)
+    {
+        if (pulse <= stdPulse)
+        {
+            audioSource.pitch = 1.1
+                f;
+        }
+        else if (pulse > 70.0f)
+        {
+            audioSource.pitch = 1.25f;
+        }
+        else if (pulse > 90.0f)
+        {
+            audioSource.pitch = 1.5f;
+        }
+        else if (pulse > 110.0f)
+        {
+            audioSource.pitch = 2.0f;
+        }
+        audioSource.Play();
+    } 
+
+    public void Mute()
+    {
+        audioSource.mute = true;
+    }
+
+    public void Unmute()
+    {
+        audioSource.mute = false;
+    }
+}

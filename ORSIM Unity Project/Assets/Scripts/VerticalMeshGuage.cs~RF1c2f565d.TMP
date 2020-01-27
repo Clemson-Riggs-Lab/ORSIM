@@ -1,0 +1,141 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class VerticalMeshGuage : MonoBehaviour {
+    public Color baseColor;
+    public Color fillColor;
+    public GraphManager gm;
+    public Vector3 fillToPoint;
+    private Mesh mesh;
+    private MeshFilter mf;
+
+    public float guageWidth;
+    public float guageHeight;
+
+    private float guagePlotInterval = 0.01f;
+    private float guageWidthHalved;
+    private Vector3 guageBase;
+
+    private int fillQuadCount;							// 	Total number of quads we are making - needs to be 1 or above
+    private int fillVerticesCount;						//	The number of vertices used across the whole fill ie the length of the vertices array
+    private int fillTriangleCount;						//	The number of triangles we need to make the fill
+    private int fillNormalCount;						//	The number of normals we are using
+    private int fillQuadCounter = 0;					//	Used for the purposes of drawing the plots over time
+    private Vector3[] fillVertices;					//	Storage: Vertex positions
+    private Vector3[] fillNormals;						//	Storage: Vertex normals
+    private int[] fillTriangles;						//	Storage: Vertex triangles
+    private Color[] fillColors;                     //	Storage: Vertex colors
+
+    private float previousSum;
+    private float currentSum;
+
+    // Use this for initialization
+    void Start () {
+        guageBase = this.gameObject.transform.position;
+
+        CreateMesh();
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+        GetValues();
+        UpdateMesh();
+	}
+
+    void GetValues()
+    {
+        previousSum = gm.previousSum;
+        currentSum = gm.currentSum;
+    }
+
+    void CreateMesh()
+    {
+        mesh = new Mesh();
+        mf = GetComponent<MeshFilter>();
+
+        mf.mesh = mesh;
+
+        fillQuadCount = (int)(80 * guageWidth);
+        fillTriangleCount = fillQuadCount * 6;
+        fillVerticesCount = fillQuadCount * 4;
+
+        fillVertices = new Vector3[fillVerticesCount];	//	Where we store the vertices of the fill
+        fillNormals = new Vector3[fillVerticesCount];		//	Where we store the normals (facing direction) of the vertices for the quads we are making
+        fillTriangles = new int[fillTriangleCount];		//	Where we store the triangles that make up the quads we are making
+        fillColors = new Color[fillVerticesCount];		//	Where we store the color of the vertices
+
+        int index = 0;
+        float guageHeightOffset = 0.0f;
+        float step = guageHeight / fillQuadCount;
+        for (int n = 0; n < fillQuadCount; n++)
+        {
+            float xlpos = guageBase.x;
+            float xrpos = guageBase.x + guageWidth;
+
+            float ybpos = guageBase.y + guageHeightOffset;
+            float ytpos = guageBase.y + guageHeightOffset + step;
+
+            // bottom left
+            fillVertices[index] = new Vector3(xlpos, ybpos, 0.0f);
+            fillColors[index] = new Color(baseColor.r, baseColor.g, baseColor.b, baseColor.a);
+            // top left
+            fillVertices[index + 1] = new Vector3(xlpos, ytpos, 0.0f);
+            fillColors[index+1] = new Color(baseColor.r, baseColor.g, baseColor.b, baseColor.a);
+            // bottom right
+            fillVertices[index + 2] = new Vector3(xrpos, ybpos, 0.0f);
+            fillColors[index+2] = new Color(baseColor.r, baseColor.g, baseColor.b, baseColor.a);
+            // top right 
+            fillVertices[index + 3] = new Vector3(xrpos, ytpos, 0.0f);
+            fillColors[index+3] = new Color(baseColor.r, baseColor.g, baseColor.b, baseColor.a);
+
+            index += 4;
+            guageHeightOffset += step;
+        }
+
+        index = 0;
+
+        for (int n = 0; n < fillQuadCount; n++)			//	How the triangles are described:	
+        {
+            fillTriangles[index] = n * 4;				// 	1 - - - - 3  	ie: 
+            fillTriangles[index + 1] = (n * 4) + 1;		// 	| .		  |		left triangle has three points: 0, 1 and 2
+            fillTriangles[index + 2] = (n * 4) + 2;		//	|   .	  |		right triangle has three points: 2, 1 and 3
+            fillTriangles[index + 3] = (n * 4) + 2;		//	|	  .   |
+            fillTriangles[index + 4] = (n * 4) + 1;		//	|	    . |		note:	
+            fillTriangles[index + 5] = (n * 4) + 3;		//	0 - - - - 2		we describe these 'clockwise'
+
+            index += 6;
+        }
+
+        //	Now we need to assign the arrays we have made to the mesh
+
+        mesh.vertices = fillVertices;
+        mesh.normals = fillNormals;
+        mesh.triangles = fillTriangles;
+        mesh.colors = fillColors;
+
+        mesh.RecalculateBounds();
+        mesh.RecalculateNormals();
+    }
+
+    void UpdateMesh()
+    {
+        fillVertices = mesh.vertices;
+        fillColors = mesh.colors;
+
+        fillToPoint = new Vector3(guageBase.x, guageBase.y + currentSum*2.5f, 0.0f);
+
+        for (int n = 0; n < fillQuadCount*4; n++)
+        {
+            if (fillVertices[n].y <= fillToPoint.y)
+            {
+                fillColors[n] = new Color(fillColor.r, fillColor.g, fillColor.b, fillColor.a);
+            }
+            else
+            {
+                fillColors[n] = new Color(baseColor.r, baseColor.g, baseColor.b, baseColor.a);
+            }
+        }
+
+        mesh.colors = fillColors;
+    }
+}

@@ -1,0 +1,25 @@
+~
+Patient Monitor Config
+Name:Julian Dixon
+Gender:Male
+Age:22
+Height:6'4"
+Weight:180 lbs.
+HeartRate:60
+Pulse:60
+SPO2:96
+Systolic:110
+Diastolic:70
+Tskin:35.4
+~
+Anesthesia Monitor ConfigPpeak:13
+EtCO2Peak:43
+This stuff is irrelevant right now
+~
+Patient Monitor Events
+HR change (80.0 00:20)
+HR stabilize (0.0 00:35)
+BP increase (10.0 00:45)
+SPO2 change (88.0 00:55)
+SPO2 stabilize (0.0 01:05)
+~
